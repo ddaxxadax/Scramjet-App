@@ -7,104 +7,49 @@
   <meta name="theme-color" content="#0b0b0c" />
   <title>MONO — Study Space</title>
   <link rel="icon" href="favicon.ico" />
-
   <script src="/scram/scramjet.all.js"></script>
   <script src="/baremux/index.js"></script>
-
   <link rel="stylesheet" href="index.css" />
-
   <style>
     :root {
       color-scheme: dark;
-      font-family: Inter, system-ui, -apple-system, sans-serif;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
       background: #0b0b0c;
       color: #f4f4f5;
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background: radial-gradient(ellipse at 50% 0%, #202023 0%, transparent 55%), #0b0b0c;
+      background:
+        radial-gradient(ellipse at 50% 0%, #202023 0%, transparent 55%),
+        #0b0b0c;
     }
-
     header {
-      min-height: 76px;
+      height: 76px;
       padding: 0 6%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid #252528;
     }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 21px;
-      font-weight: 750;
-      letter-spacing: -1px;
-    }
-
-    .brand span {
-      color: #8b8b94;
-      font-weight: 400;
-    }
-
-    .home-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-      border: 1px solid #343438;
-      border-radius: 11px;
-      background: #171719;
-      color: #f4f4f5;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .home-button:hover {
-      background: #29292d;
-      border-color: #777780;
-    }
-
-    .home-button svg {
-      width: 20px;
-      height: 20px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.7;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .status {
-      color: #a1a1aa;
-      font-size: 12px;
-    }
-
+    .brand { font-size: 21px; font-weight: 750; letter-spacing: -1px; }
+    .brand span { color: #8b8b94; font-weight: 400; }
+    .status { color: #a1a1aa; font-size: 12px; }
     .status::before {
       content: "";
       display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #76d39b;
-      margin-right: 8px;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #76d39b; margin-right: 8px;
     }
-
     main {
       width: min(680px, 90%);
       margin: auto;
       padding: 72px 0 100px;
       text-align: center;
     }
-
     .eyebrow {
       color: #a1a1aa;
       font-size: 11px;
@@ -112,14 +57,12 @@
       text-transform: uppercase;
       margin-bottom: 20px;
     }
-
     h1 {
       font-size: clamp(42px, 8vw, 70px);
       letter-spacing: -4px;
       line-height: 1.05;
       margin: 0;
     }
-
     .subtitle {
       color: #a1a1aa;
       max-width: 440px;
@@ -127,7 +70,6 @@
       font-size: 15px;
       line-height: 1.7;
     }
-
     #sj-form {
       display: flex;
       width: 100%;
@@ -135,14 +77,12 @@
       background: #171719;
       border: 1px solid #343438;
       border-radius: 15px;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color .2s, box-shadow .2s;
     }
-
     #sj-form:focus-within {
       border-color: #777780;
       box-shadow: 0 0 0 4px #ffffff08;
     }
-
     #sj-address {
       min-width: 0;
       flex: 1;
@@ -153,9 +93,7 @@
       outline: 0;
       font-size: 15px;
     }
-
     #sj-address::placeholder { color: #71717a; }
-
     #sj-form button {
       border: 0;
       border-radius: 10px;
@@ -165,15 +103,8 @@
       font-weight: 650;
       cursor: pointer;
     }
-
     #sj-form button:hover { background: #d4d4d8; }
-
-    .hint {
-      color: #71717a;
-      font-size: 12px;
-      margin-top: 14px;
-    }
-
+    .hint { color: #71717a; font-size: 12px; margin-top: 14px; }
     .quick-links {
       display: flex;
       justify-content: center;
@@ -181,7 +112,6 @@
       flex-wrap: wrap;
       margin-top: 30px;
     }
-
     .quick-links a {
       color: #d4d4d8;
       text-decoration: none;
@@ -191,21 +121,17 @@
       padding: 10px 15px;
       font-size: 12px;
     }
-
     .quick-links a:hover { background: #252528; }
-
     #sj-error {
       color: #fca5a5;
       font-size: 13px;
       overflow-wrap: anywhere;
     }
-
     #sj-error-code {
       color: #a1a1aa;
       white-space: pre-wrap;
       overflow-wrap: anywhere;
     }
-
     footer {
       padding: 22px 6%;
       display: flex;
@@ -216,19 +142,10 @@
       border-top: 1px solid #252528;
       font-size: 12px;
     }
-
-    footer a {
-      color: #a1a1aa;
-      text-decoration: none;
-      margin-right: 16px;
-    }
-
+    footer a { color: #a1a1aa; text-decoration: none; margin-right: 16px; }
     footer a:hover { color: #fff; }
-
     @media (max-width: 480px) {
-      header { min-height: 64px; padding: 0 5%; }
-      .brand { font-size: 17px; gap: 8px; }
-      .brand span { font-size: 12px; }
+      header { height: 64px; }
       h1 { letter-spacing: -2px; }
       #sj-form { flex-wrap: wrap; }
       #sj-address { flex-basis: 100%; }
@@ -236,22 +153,13 @@
       footer { justify-content: center; text-align: center; }
     }
   </style>
-
   <script src="register-sw.js" defer></script>
   <script src="search.js" defer></script>
   <script src="index.js" defer></script>
 </head>
-
 <body>
   <header>
-    <div class="brand">
-      <a href="/" class="home-button" aria-label="Go to MONO home" title="Home">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"></path>
-        </svg>
-      </a>
-      <div>MONO<span> / study space</span></div>
-    </div>
+    <div class="brand">MONO<span> / study space</span></div>
     <div class="status">Workspace</div>
   </header>
 
@@ -264,7 +172,11 @@
     </p>
 
     <form id="sj-form" class="flex-center">
-      <input id="sj-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />
+      <input
+        id="sj-search-engine"
+        value="https://www.google.com/search?q=%s"
+        type="hidden"
+      />
       <input
         id="sj-address"
         type="text"
